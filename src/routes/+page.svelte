@@ -93,7 +93,7 @@
 	{/each}
 	<div class="graph-container">
 		<Graph>
-			<div class="heading">Available workflows<div/>
+			<div class="heading">Available workflows</div>
 			
 			{#each nodes as node}
 			  <Node node={node}/>
