@@ -38,6 +38,8 @@ const extractCharGroups = (labels, treeDepth) => {
     return [charGroup, ...otherCharGroups];
 };
 
+// Useful for debugging
+// eslint-disable-next-line no-unused-vars
 const printPrefixTree = (tree, treeDepth = 0) => {
     const { nodeChar, labels, children } = tree;
     

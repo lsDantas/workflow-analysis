@@ -4,8 +4,13 @@
     import dagre from 'cytoscape-dagre';
     import graphStyles from './graphStyles.js';
 
+    import Node from './Node.svelte';
+    import Edge from './Edge.svelte';
+
+    let { nodes, edges } = $props();
+
     let refElement = null;
-    let cyInstance = null;
+    let cyInstance = $state(null);
 
     setContext('graphSharedState', {
         getCyInstance: () => cyInstance
@@ -34,7 +39,15 @@
 
 <div class="graph" bind:this={refElement}>
     {#if cyInstance}
-        <slot></slot>
+        <div class="heading">Directed Acyclic Graph Visualization</div>
+
+        {#each nodes as node}
+            <Node node={node}/>
+        {/each}
+
+        {#each edges as edge}
+            <Edge edge={edge}/>
+        {/each}
     {/if}
 </div>
 
@@ -43,5 +56,12 @@
         width: 100vw;
         height: 75vh;
 		max-height: 100%;
+	}
+
+    .heading {
+		font-family: "EB Garamond";
+		font-size: 1.8em;
+		display: flex;
+		justify-content: center;
 	}
 </style>
