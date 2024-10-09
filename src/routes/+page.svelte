@@ -16,7 +16,7 @@
 			const rawData = await response.json();
 
 			if (!rawData.nodes) {
-				throw new Error("Invalid data.");
+				throw new Error('Invalid data.');
 			}
 
 			data = rawData.nodes;
@@ -43,7 +43,7 @@
 	{:else if !data || error}
 		Unable to load data.
 	{:else}
-		<AnalysisPanel data={data}/>
+		<AnalysisPanel {data} />
 	{/if}
 </section>
 
@@ -53,9 +53,9 @@
 	}
 	.title {
 		width: 100%;
-		font-family: "EB Garamond";
-		font-weight: "800";
-		font-style: "bold";
+		font-family: 'EB Garamond';
+		font-weight: '800';
+		font-style: 'bold';
 		font-size: 3em;
 	}
 

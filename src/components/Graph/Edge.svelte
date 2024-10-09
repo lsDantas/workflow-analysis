@@ -1,14 +1,14 @@
 <script>
-    import { getContext } from 'svelte'
+	import { getContext } from 'svelte';
 
-    export let edge
+	export let edge;
 
-    const { getCyInstance } = getContext('graphSharedState')
-    const cyInstance = getCyInstance()
+	const { getCyInstance } = getContext('graphSharedState');
+	const cyInstance = getCyInstance();
 
-    cyInstance.add({
-        group: 'edges',
-        id: edge.id,
-        data: { ...edge }
-    })
+	cyInstance.add({
+		group: 'edges',
+		id: edge.id,
+		data: { ...edge }
+	});
 </script>
