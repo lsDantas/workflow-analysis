@@ -7,7 +7,7 @@
 
 	$effect(async () => {
 		try {
-			const response = await fetch('http://localhost:8000/getAll');
+			const response = await fetch(`${import.meta.env.VITE_API_URL}`);
 
 			if (!response.ok) {
 				throw new Error('Received invalid response.');
@@ -39,9 +39,9 @@
 	</div>
 
 	{#if loading}
-		Loading...
+		<div class="placeholder-label">Loading...</div>
 	{:else if !data || error}
-		Unable to load data.
+		<div class="placeholder-label">Unable to load data.</div>
 	{:else}
 		<AnalysisPanel {data} />
 	{/if}
@@ -57,6 +57,16 @@
 		font-weight: '800';
 		font-style: 'bold';
 		font-size: 3em;
+	}
+
+	.placeholder-label {
+		display: flex;
+		flex-grow: 1;
+		margin-top: 15%;
+		align-items: start;
+		justify-content: center;
+		font-family: 'EB Garamond';
+		font-size: 1.5em;
 	}
 
 	section {

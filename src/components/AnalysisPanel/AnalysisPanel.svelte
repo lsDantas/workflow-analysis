@@ -80,11 +80,12 @@
 	{/each}
 </div>
 
-<div class="graph-container">
+<div class="heading">Directed Acyclic Graph Visualization</div>
+<div class="analysis-container">
 	{#if remountGraphFlag}
-		<Graph nodes={displayNodes} edges={displayEdges} />
+		<Graph nodes={displayNodes} edges={displayEdges} retrieveNode={retrieveNodeByName} />
 	{:else}
-		<Graph nodes={displayNodes} edges={displayEdges} />
+		<Graph nodes={displayNodes} edges={displayEdges} retrieveNode={retrieveNodeByName} />
 	{/if}
 </div>
 
@@ -112,8 +113,20 @@
 		padding-top: 20px;
 		padding-bottom: 20px;
 	}
+	.heading {
+		font-family: 'EB Garamond';
+		font-size: 1.8em;
+		display: flex;
+		justify-content: center;
+	}
 
-	.graph-container {
+	.analysis-container {
+		display: flex;
+		flex-grow: 1;
+		flex-direction: row;
+		justify-content: center;
+		align-items: start;
+		width: 100%;
 		max-height: 500px;
 	}
 </style>
